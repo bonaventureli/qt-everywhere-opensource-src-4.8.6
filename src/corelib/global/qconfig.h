@@ -8,8 +8,8 @@
 /* Machine byte-order */
 #define Q_BIG_ENDIAN 4321
 #define Q_LITTLE_ENDIAN 1234
-#define QT_BUILD_KEY "arm linux g++-4 no-pkg-config"
-#define QT_BUILD_KEY_COMPAT3 "armv6 linux g++-4 no-pkg-config"
+#define QT_BUILD_KEY "arm linux g++-4 no-pkg-config QT_NO_QWS_CURSOR"
+#define QT_BUILD_KEY_COMPAT3 "armv6 linux g++-4 no-pkg-config QT_NO_QWS_CURSOR"
 
 #ifdef QT_BOOTSTRAPPED
 #define Q_BYTE_ORDER Q_LITTLE_ENDIAN
