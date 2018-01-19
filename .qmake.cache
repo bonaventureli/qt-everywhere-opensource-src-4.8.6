@@ -1,0 +1,41 @@
+CONFIG +=  cross_compile release embedded stl precompile_header neon exceptions_off dylib create_prl link_prl depend_includepath fix_output_dirs QTDIR_build
+QT_SOURCE_TREE = $$quote(/home/andy/qt-arm-src/qt-everywhere-opensource-src-4.8.6)
+QT_BUILD_TREE = $$quote(/home/andy/qt-arm-src/qt-everywhere-opensource-src-4.8.6)
+QT_BUILD_PARTS = libs translations
+QMAKE_ABSOLUTE_SOURCE_ROOT = $$QT_SOURCE_TREE
+QMAKE_MOC_SRC    = $$QT_BUILD_TREE/src/moc
+
+#local paths that cannot be queried from the QT_INSTALL_* properties while building QTDIR
+QMAKE_MOC        = $$QT_BUILD_TREE/bin/moc
+QMAKE_UIC        = $$QT_BUILD_TREE/bin/uic
+QMAKE_UIC3       = $$QT_BUILD_TREE/bin/uic3
+QMAKE_RCC        = $$QT_BUILD_TREE/bin/rcc
+QMAKE_QDBUSXML2CPP = $$QT_BUILD_TREE/bin/qdbusxml2cpp
+QMAKE_INCDIR_QT  = $$QT_BUILD_TREE/include
+QMAKE_LIBDIR_QT  = $$QT_BUILD_TREE/lib
+
+QMAKE_LFLAGS    = -Wl,-rpath-link,$$QT_BUILD_TREE/lib $$QMAKE_LFLAGS
+QT_LFLAGS_ODBC   = -lodbc
+QMAKESPEC = $$QT_BUILD_TREE/mkspecs/qws/linux-am335x-g++
+styles += cde mac motif plastique cleanlooks windows
+decorations += default windows styled
+mouse-drivers += pc
+gfx-drivers += linuxfb
+mouse-drivers += linuxtp
+kbd-drivers += tty
+mouses -= pc
+mouse-plugins += pc
+mouse-drivers += tslib
+PRECOMPILED_DIR = .pch/release-shared-emb-armv7
+OBJECTS_DIR = .obj/release-shared-emb-armv7
+MOC_DIR = .moc/release-shared-emb-armv7
+RCC_DIR = .rcc/release-shared-emb-armv7
+UI_DIR = .uic/release-shared-emb-armv7
+DEFINES +=  "QT_QWS_CLIENTBLIT"
+LIBS +=  -l"rt"
+QMAKE_RPATHDIR += "/usr/local/Trolltech/QtEmbedded-4.8.6-tslib-mouse/lib" 
+QMAKE_CFLAGS += -fno-exceptions
+QMAKE_CXXFLAGS += -fno-exceptions
+QMAKE_LFLAGS += -fno-exceptions
+sql-drivers =  sqlite
+sql-plugins = 
